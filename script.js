@@ -2,9 +2,28 @@
    Fixed Dynamic Change Habits Feature
 =============================== */
 
-function openHabitManager() {
-  let action = prompt("Type 'add' to add a habit or 'remove' to remove a habit:");
-  if (!action) return;
+window.addEventListener('DOMContentLoaded', () => {
+  loadData();
+  addHoverEffect();
+
+  const addBtn = document.getElementById('addHabitBtn');
+  const habitInput = document.getElementById('newHabitInput');
+
+  addBtn.addEventListener('click', () => {
+    const habit = habitInput.value.trim();
+    if (!habit) {
+      alert("Please enter a habit name!");
+      return;
+    }
+    addHabit(habit);       // Call your existing addHabit function
+    habitInput.value = ''; // Clear input after adding
+  });
+
+  // Optional: Add habit by pressing Enter key
+  habitInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') addBtn.click();
+  });
+});
 
   if (action.toLowerCase() === 'add') {
     let newHabit = prompt("Enter the name of the new habit (e.g., Exercise):");
