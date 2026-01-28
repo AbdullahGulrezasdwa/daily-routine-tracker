@@ -1,19 +1,14 @@
 /* ===============================
-   Daily Routine Tracker JS
-   Features:
-   - Save all habits in localStorage
-   - Color-code completed tasks
-   - Reset week functionality
-   - Modular and ready for upgrades
+   Core Daily Routine Tracker JS
 =============================== */
 
-// Save checkbox state and update styling
+// Save checkbox state and update color
 function saveData(checkbox) {
   localStorage.setItem(checkbox.id, checkbox.checked);
   updateCellStyle(checkbox);
 }
 
-// Apply color coding to checked cells
+// Update cell color based on checkbox
 function updateCellStyle(checkbox) {
   if (checkbox.checked) {
     checkbox.parentElement.classList.add('done');
@@ -45,7 +40,7 @@ function resetAll() {
   });
 }
 
-// Add hover animation for fun (optional)
+// Hover animation for table cells
 function addHoverEffect() {
   const cells = document.querySelectorAll('td');
   cells.forEach(td => {
