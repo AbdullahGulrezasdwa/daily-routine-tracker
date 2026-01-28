@@ -1,18 +1,19 @@
-/* =======================================
+/* ===============================
    Daily Routine Tracker JS
    Features:
-   - Save checkbox state to localStorage
-   - Auto color completed habits
-   - Reset all habits
-======================================= */
+   - Save all habits in localStorage
+   - Color-code completed tasks
+   - Reset week functionality
+   - Modular and ready for upgrades
+=============================== */
 
-// Save checkbox state when clicked
+// Save checkbox state and update styling
 function saveData(checkbox) {
-  localStorage.setItem(checkbox.id, checkbox.checked); // store state
-  updateCellStyle(checkbox); // update color
+  localStorage.setItem(checkbox.id, checkbox.checked);
+  updateCellStyle(checkbox);
 }
 
-// Update the cell color based on checkbox
+// Apply color coding to checked cells
 function updateCellStyle(checkbox) {
   if (checkbox.checked) {
     checkbox.parentElement.classList.add('done');
@@ -33,8 +34,9 @@ function loadData() {
   });
 }
 
-// Reset all habits (optional button)
+// Reset all checkboxes (new week)
 function resetAll() {
+  if (!confirm("Are you sure you want to reset the week?")) return;
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
   checkboxes.forEach(cb => {
     cb.checked = false;
@@ -43,5 +45,17 @@ function resetAll() {
   });
 }
 
-// Call loadData when the page is ready
-window.addEventListener('DOMContentLoaded', loadData);
+// Add hover animation for fun (optional)
+function addHoverEffect() {
+  const cells = document.querySelectorAll('td');
+  cells.forEach(td => {
+    td.addEventListener('mouseenter', () => td.style.transform = 'scale(1.02)');
+    td.addEventListener('mouseleave', () => td.style.transform = 'scale(1)');
+  });
+}
+
+// Initialize tracker
+window.addEventListener('DOMContentLoaded', () => {
+  loadData();
+  addHoverEffect();
+});
