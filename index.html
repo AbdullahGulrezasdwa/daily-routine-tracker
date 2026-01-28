@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Routine Tracker</title>
+  <style>
+    /* === General Page Styling === */
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f4f7f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      color: #333;
+    }
+
+    /* === Table Styling === */
+    table {
+      border-collapse: collapse;
+      width: 95%;
+      max-width: 1000px;
+      margin: 20px auto;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+    }
+
+    td {
+      transition: background-color 0.3s;
+    }
+
+    .done {
+      background-color: #a2f5a2 !important;
+    }
+
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    /* === Responsive === */
+    @media (max-width: 768px) {
+      table, th, td {
+        font-size: 14px;
+        padding: 8px;
+      }
+      input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    /* === Footer === */
+    footer {
+      margin: 20px;
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>My Daily Routine Tracker</h1>
+
+<table>
+  <tr>
+    <th>Habit</th>
+    <th>Monday</th>
+    <th>Tuesday</th>
+    <th>Wednesday</th>
+    <th>Thursday</th>
+    <th>Friday</th>
+    <th>Saturday</th>
+    <th>Sunday</th>
+  </tr>
+
+  <!-- Habit 1: Study -->
+  <tr>
+    <td>Math Study</td>
+    <td><input type="checkbox" id="mathMon" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="mathTue" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="mathWed" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="mathThu" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="mathFri" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="mathSat" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="mathSun" onchange="saveData(this)"></td>
+  </tr>
+
+  <!-- Habit 2: Reading -->
+  <tr>
+    <td>Reading</td>
+    <td><input type="checkbox" id="readMon" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="readTue" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="readWed" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="readThu" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="readFri" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="readSat" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="readSun" onchange="saveData(this)"></td>
+  </tr>
+
+  <!-- Habit 3: Exercise -->
+  <tr>
+    <td>Exercise</td>
+    <td><input type="checkbox" id="exMon" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="exTue" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="exWed" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="exThu" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="exFri" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="exSat" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="exSun" onchange="saveData(this)"></td>
+  </tr>
+
+  <!-- Habit 4: Other -->
+  <tr>
+    <td>Other Task</td>
+    <td><input type="checkbox" id="othMon" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="othTue" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="othWed" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="othThu" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="othFri" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="othSat" onchange="saveData(this)"></td>
+    <td><input type="checkbox" id="othSun" onchange="saveData(this)"></td>
+  </tr>
+</table>
+
+<footer>Made with ❤️ by You • Saved locally in your browser</footer>
+
+<script>
+  // === Save checkbox state in localStorage ===
+  function saveData(checkbox) {
+    localStorage.setItem(checkbox.id, checkbox.checked);
+    if(checkbox.checked) checkbox.parentElement.classList.add('done');
+    else checkbox.parentElement.classList.remove('done');
+  }
+
+  // === Load saved data when page loads ===
+  window.onload = function() {
+    const checkboxes = document.querySelectorAll('input[type=checkbox]');
+    checkboxes.forEach(cb => {
+      if(localStorage.getItem(cb.id) === 'true') {
+        cb.checked = true;
+        cb.parentElement.classList.add('done');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
