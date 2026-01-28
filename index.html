@@ -10,9 +10,12 @@
 
 <h1>My Daily Routine Tracker</h1>
 
-<!-- Buttons -->
-<button onclick="resetAll()">Reset Week</button>
-<button onclick="openHabitManager()">Change Habits</button>
+<!-- Buttons / Controls -->
+<div class="controls">
+  <button onclick="resetAll()">Reset Week</button>
+  <input type="text" id="newHabitInput" placeholder="New habit name">
+  <button id="addHabitBtn">+</button>
+</div>
 
 <!-- Routine Table -->
 <table>
