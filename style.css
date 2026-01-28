@@ -1,0 +1,127 @@
+/* ===========================
+   General Page Styling
+=========================== */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #f7f7f7, #e2f1f8);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-top: 30px;
+  font-size: 2.5em;
+  letter-spacing: 1px;
+}
+
+/* ===========================
+   Table Styling
+=========================== */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 90%;
+  max-width: 1000px;
+  margin: 30px auto;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 15px 12px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background: #4CAF50;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1em;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+td {
+  font-size: 0.95em;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* ===========================
+   Checkbox Styling
+=========================== */
+input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  accent-color: #4CAF50;
+  transition: transform 0.1s;
+}
+
+input[type="checkbox"]:hover {
+  transform: scale(1.2);
+}
+
+/* ===========================
+   Completed Habit Styling
+=========================== */
+.done {
+  background-color: #d4f4dd !important;
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+/* ===========================
+   Table Row Hover Effect
+=========================== */
+tr:hover td {
+  background-color: #f0f0f0;
+}
+
+/* ===========================
+   Footer Styling
+=========================== */
+footer {
+  margin: 20px;
+  color: #555;
+  font-size: 0.9em;
+}
+
+/* ===========================
+   Responsive Design
+=========================== */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 2.2em;
+  }
+}
+
+@media (max-width: 768px) {
+  table, th, td {
+    font-size: 0.85em;
+    padding: 10px 6px;
+  }
+  input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  table {
+    width: 100%;
+  }
+  th, td {
+    padding: 8px 5px;
+  }
+  h1 {
+    font-size: 1.8em;
+  }
+}
