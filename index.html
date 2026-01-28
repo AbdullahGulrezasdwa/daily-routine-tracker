@@ -8,122 +8,58 @@
 </head>
 <body>
 
-<h1>My Daily Routine Tracker</h1>
+<h1>Daily Routine Tracker</h1>
 
-<!-- Buttons / Controls -->
 <div class="controls">
   <button onclick="resetAll()">Reset Week</button>
   <input type="text" id="newHabitInput" placeholder="New habit name">
   <button id="addHabitBtn">+</button>
 </div>
 
-<!-- Routine Table -->
-<table>
-  <tr>
-    <th>Habit</th>
-    <th>Monday</th>
-    <th>Tuesday</th>
-    <th>Wednesday</th>
-    <th>Thursday</th>
-    <th>Friday</th>
-    <th>Saturday</th>
-    <th>Sunday</th>
-  </tr>
-
-  <!-- Default Habits -->
-  <tr data-habit="Study">
-    <td>Study</td>
-    <td><input type="checkbox" class="study" id="StudyMon" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="study" id="StudyTue" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="study" id="StudyWed" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="study" id="StudyThu" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="study" id="StudyFri" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="study" id="StudySat" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="study" id="StudySun" onchange="saveData(this)"></td>
-  </tr>
-
-  <tr data-habit="Reading">
-    <td>Reading</td>
-    <td><input type="checkbox" class="read" id="ReadingMon" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="read" id="ReadingTue" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="read" id="ReadingWed" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="read" id="ReadingThu" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="read" id="ReadingFri" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="read" id="ReadingSat" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="read" id="ReadingSun" onchange="saveData(this)"></td>
-  </tr>
-
-  <tr data-habit="Play">
-    <td>Play</td>
-    <td><input type="checkbox" class="play" id="PlayMon" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="play" id="PlayTue" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="play" id="PlayWed" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="play" id="PlayThu" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="play" id="PlayFri" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="play" id="PlaySat" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="play" id="PlaySun" onchange="saveData(this)"></td>
-  </tr>
-
-  <!-- 5 Daily Prayers -->
-  <tr data-habit="Fajr">
-    <td>Fajr</td>
-    <td><input type="checkbox" class="prayer" id="FajrMon" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="FajrTue" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="FajrWed" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="FajrThu" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="FajrFri" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="FajrSat" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="FajrSun" onchange="saveData(this)"></td>
-  </tr>
-
-  <tr data-habit="Dhuhr">
-    <td>Dhuhr</td>
-    <td><input type="checkbox" class="prayer" id="DhuhrMon" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="DhuhrTue" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="DhuhrWed" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="DhuhrThu" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="DhuhrFri" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="DhuhrSat" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="DhuhrSun" onchange="saveData(this)"></td>
-  </tr>
-
-  <tr data-habit="Asr">
-    <td>Asr</td>
-    <td><input type="checkbox" class="prayer" id="AsrMon" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="AsrTue" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="AsrWed" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="AsrThu" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="AsrFri" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="AsrSat" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="AsrSun" onchange="saveData(this)"></td>
-  </tr>
-
-  <tr data-habit="Maghrib">
-    <td>Maghrib</td>
-    <td><input type="checkbox" class="prayer" id="MaghribMon" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="MaghribTue" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="MaghribWed" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="MaghribThu" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="MaghribFri" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="MaghribSat" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="MaghribSun" onchange="saveData(this)"></td>
-  </tr>
-
-  <tr data-habit="Isha">
-    <td>Isha</td>
-    <td><input type="checkbox" class="prayer" id="IshaMon" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="IshaTue" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="IshaWed" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="IshaThu" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="IshaFri" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="IshaSat" onchange="saveData(this)"></td>
-    <td><input type="checkbox" class="prayer" id="IshaSun" onchange="saveData(this)"></td>
-  </tr>
+<table id="routineTable">
+  <thead>
+    <tr>
+      <th>Habit</th>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+      <th>Sat</th>
+      <th>Sun</th>
+      <th>Progress</th>
+      <th>−</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Default habits -->
+    <tr data-habit="Study">
+      <td>Study</td>
+      <td><input type="checkbox" id="Study_Mon"></td>
+      <td><input type="checkbox" id="Study_Tue"></td>
+      <td><input type="checkbox" id="Study_Wed"></td>
+      <td><input type="checkbox" id="Study_Thu"></td>
+      <td><input type="checkbox" id="Study_Fri"></td>
+      <td><input type="checkbox" id="Study_Sat"></td>
+      <td><input type="checkbox" id="Study_Sun"></td>
+      <td><div class="habit-progress"></div></td>
+      <td><button onclick="removeHabit('Study')">−</button></td>
+    </tr>
+    <tr data-habit="Reading">
+      <td>Reading</td>
+      <td><input type="checkbox" id="Reading_Mon"></td>
+      <td><input type="checkbox" id="Reading_Tue"></td>
+      <td><input type="checkbox" id="Reading_Wed"></td>
+      <td><input type="checkbox" id="Reading_Thu"></td>
+      <td><input type="checkbox" id="Reading_Fri"></td>
+      <td><input type="checkbox" id="Reading_Sat"></td>
+      <td><input type="checkbox" id="Reading_Sun"></td>
+      <td><div class="habit-progress"></div></td>
+      <td><button onclick="removeHabit('Reading')">−</button></td>
+    </tr>
+  </tbody>
 </table>
 
-<footer>Made with A Brain • Saved locally in your browser don't worry •</footer>
-
 <script src="script.js"></script>
-<script src="changeHabits.js"></script>
 </body>
 </html>
